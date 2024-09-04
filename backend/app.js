@@ -1,5 +1,6 @@
 const memoRoutes = require('./routes/memohub.routes.js'); 
 const express = require('express');
+require('dotenv').config();
 const cors = require('cors');
 const path = require('path');
 

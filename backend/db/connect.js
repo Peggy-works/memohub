@@ -1,10 +1,12 @@
 var mysql = require('mysql2');
+require('dotenv').config();
+
 var pool = mysql.createPool({
     connectionLimit: 10, 
-    host: 'localhost',
-    database: 'memohub',
-    user: 'root',
-    password: ''
+    host: process.env.HOST,
+    database: process.env.DATABASE,
+    user: process.env.USER,
+    password: process.env.PASSWORD
 });
 
 module.exports = pool.promise();
