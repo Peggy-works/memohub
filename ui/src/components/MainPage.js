@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import fetch from 'node-fetch';
-import WeatherWidget from './weatherwidget';
+import WeatherWidget from './WeatherWidget';
 
 const MainPage = () => {
 
