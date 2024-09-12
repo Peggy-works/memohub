@@ -16,16 +16,17 @@ const WeatherWidget = ({data}) => {
     
 
     return(
-        <Container>
-            <Row>
-                <Col>
-                    <img src={data?.current.condition.icon} width={64} height={64}/>
-                </Col>
-                <Col>
-                    <h3>{data?.location.name}</h3>
-                    <h3>{data?.location.tz_id}</h3>
-                    <h3>{data?.current.temp_f}</h3>
-                    <h3>{data?.current.humidity}</h3>
+        <Container className='d-flex align-items-baseline justify-content-center' responsive='sm'>
+            <Row className='weather-widget'> 
+                <Col className='d-flex flex-column align-items-center'>
+                    <Col className='d-flex align-items-center'>
+                        <img src={data?.current.condition.icon} width={64} height={64}/> 
+                        <h3>{data?.current.temp_f}</h3>
+                        F/C 
+                    </Col>
+                    <h5>{data?.location.name}</h5>    
+                    <h5>{data?.location.tz_id}</h5> 
+                    <h5>Humidity: {data?.current.humidity}</h5>
                 </Col>
             </Row>
         </Container>   

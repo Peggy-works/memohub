@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/esm/Row';
+import Col from 'react-bootstrap/esm/Col';
+import Carousel from 'react-bootstrap/Carousel';
 import fetch from 'node-fetch';
 import WeatherWidget from './WeatherWidget';
+import FoodLogWidgetTest from './FoodLogWidgetTest';
 
 const MainPage = () => {
 
@@ -36,9 +40,29 @@ const MainPage = () => {
     }, [])
 
     return(
-        <Container className='d-flex align-items-baseline justify-content-center vh-100 py-5'> 
+        <Container className='main-container d-flex flex-column align-items-baseline justify-content-center vh-100 py-5' fluid> 
             {
-                loading ? "Loading..." : <WeatherWidget data={data} />
+                loading ? "Loading..." : (
+                    <Container className='d-flex flex-column'>
+                        <Row className='justify-content-center'>
+                            <Col xs={2}>
+                                <WeatherWidget data={data} />
+                            </Col>
+                            <Col xs={2}>
+                                <ul>
+                                    <li>Hello</li>
+                                    <li>Hello</li>
+                                    <li>Hello</li>
+                                    <li>Hello</li>
+                                    <li>Hello</li>
+                                    <li>Hello</li>
+                                    <li>Hello</li>
+                                </ul>
+                            </Col>
+                        </Row>
+                        <FoodLogWidgetTest />
+                    </Container>
+                )
             }
         </Container>
     )

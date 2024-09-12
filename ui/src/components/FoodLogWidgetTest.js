@@ -9,7 +9,7 @@ import Table from 'react-bootstrap/Table';
 //Constants
 import { categories } from '../constants/constants.js';
 
-const FoodLogWidget = () => {
+const FoodLogWidgetTest = () => {
     const [meals, setMeals] = useState(null);
     const [snacks, setSnacks] = useState(null);
     const [beverages, setBev] = useState(null);
@@ -19,13 +19,17 @@ const FoodLogWidget = () => {
     const [sleep, setSleep] = useState(null); 
     const [date, setDate] = useState(new Date().toDateString());
 
-    let length = 7;
+    let length = 2;
     let days = Array.from({ length }, (_, index) => `Days ${index + 1}`); 
 
+    const handleClick = (e) => {
+        
+    }
+
     return ( 
-        <Container className='d-flex align-items-baseline justify-content-center vh-100 py-5'>
+        <Container className='d-flex flex-column align-items-baseline justify-content-center py-4'>
             <h2>{date}</h2>
-            <Table className='' striped bordered hover responsive="sm">
+            <Table className='' striped bordered hover responsive='sm'>
                 <thead>
                     <tr>
                         { days.map((val, _) => { return <th style={{textAlign: 'center'}}>{val}</th> }) } 
@@ -36,12 +40,10 @@ const FoodLogWidget = () => {
                     { categories.map((val, index) => (
                         <tr key={index}>
                             <th className='d-md'>{val}</th>
-                            {Array.from({ length: 6 }).map((day, index) => (
-                                <td key={index}>
+                            <td className='d-flex py-2' key={index}>
                                     <Form.Control as='textarea' rows={1} />
-                                    <Button variant="outline-primary">+</Button>
-                                </td> 
-                            ))}
+                                    <Button className='mx-3' variant="outline-primary" onClick={(e) => handleClick(e)}>+</Button>
+                            </td> 
                         </tr>
                     ))}
                 </tbody>
@@ -51,6 +53,7 @@ const FoodLogWidget = () => {
             </Table>
         </Container> 
     )
-}  
+} 
 
-export default FoodLogWidget;
+
+export default FoodLogWidgetTest;
