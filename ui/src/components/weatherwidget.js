@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/esm/Row';
 import fetch from 'node-fetch';
 import Col from 'react-bootstrap/esm/Col';
+import sunny_p2 from '../assets/Sunny_p.GIF'
 
 const WeatherWidget = ({data}) => {
     const [weatherData, setData] = useState(null);
@@ -20,7 +21,7 @@ const WeatherWidget = ({data}) => {
             <Row className='weather-widget'> 
                 <Col className='d-flex flex-column align-items-center'>
                     <Col className='d-flex align-items-center'>
-                        <img src={data?.current.condition.icon} width={64} height={64}/> 
+                        <img src={sunny_p2} width={64} height={64}/> 
                         <h3>{data?.current.temp_f}</h3>
                         F/C 
                     </Col>
