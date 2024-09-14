@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 //Constants
 import { categories } from '../constants/constants.js';
@@ -32,12 +33,12 @@ const FoodLogWidgetTest = () => {
             <Table className='' striped bordered hover responsive='sm'>
                 <thead>
                     <tr>
-                        { days.map((val, _) => { return <th style={{textAlign: 'center'}}>{val}</th> }) } 
+                        <th colSpan={2}>{date}</th>
                     </tr>
                 </thead>
                 <tbody> 
                     { /*categories.map((val, _) => { return (<tr>{val}{days.map((val, _) => <th></th>)}</tr>) })*/ } 
-                    { categories.map((val, index) => (
+                    { /* categories.map((val, index) => (
                         <tr key={index}>
                             <th className='d-md'>{val}</th>
                             <td className='d-flex py-2' key={index}>
@@ -45,7 +46,27 @@ const FoodLogWidgetTest = () => {
                                     <Button className='mx-3' variant="outline-primary" onClick={(e) => handleClick(e)}>+</Button>
                             </td> 
                         </tr>
-                    ))}
+                    ))
+                    */}
+                    {
+                        <tr>
+                            <td>
+                                <Dropdown>{/*data-bs-theme="dark"*/}
+                                    <Dropdown.Toggle size='lg' variant='success'>
+                                        Category
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu  size='lg'>
+                                    {categories.map((val, index) => (
+                                        <Dropdown.Item href='#'>{val}</Dropdown.Item>
+                                    ))}
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </td>
+                            <td>
+                                <Button className='mx-3' variant="outline-primary" onClick={(e) => handleClick(e)}>+</Button>
+                            </td> 
+                        </tr>
+                    }
                 </tbody>
                 <tfoot>
 

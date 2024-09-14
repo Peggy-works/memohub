@@ -11,3 +11,19 @@
   border-radius: 10px;
   border: solid 2px rgb(224, 221, 221);
 }
+
+ul.pipe-decoration {
+  list-style: none;
+  padding-left: 20px;
+}
+
+ul.pipe-decoration li {
+  background: url('./assets/pipe.PNG') no-repeat left center;
+  padding-left: 20px;
+  background-size: 18px 18px;
+
+}
+
+a {
+  text-decoration: none;
+}

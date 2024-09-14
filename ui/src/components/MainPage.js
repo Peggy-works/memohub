@@ -41,16 +41,19 @@ const MainPage = () => {
 
     return(
         <Container className='main-container d-flex flex-column align-items-baseline justify-content-center vh-100 py-5' fluid> 
+            <Container className='d-flex justify-content-center py-3'>
+                <h3><span style={{ color: 'blue'}}>@</span>Peggy-works space</h3>
+            </Container>
             {
                 loading ? "Loading..." : (
                     <Container className='d-flex flex-column'>
-                        <Row className='justify-content-center'>
+                        <Row className='justify-content-center align-items-center'>
                             <Col xs={2}>
                                 <WeatherWidget data={data} />
                             </Col>
-                            <Col xs={2}>
-                                <ul>
-                                    <li>Hello</li>
+                            <Col xs={3}>
+                                <ul className='pipe-decoration m-0'>
+                                    <li><a href='https://github.com/Peggy-works/memohub'>The code for this website</a></li>
                                     <li>Hello</li>
                                     <li>Hello</li>
                                     <li>Hello</li>
