@@ -12,6 +12,10 @@
   border: solid 2px rgb(224, 221, 221);
 }
 
+.food-widget-table {
+  border-radius: 5px;
+}
+
 ul.pipe-decoration {
   list-style: none;
   padding-left: 20px;

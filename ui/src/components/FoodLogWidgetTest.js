@@ -30,7 +30,7 @@ const FoodLogWidgetTest = () => {
     return ( 
         <Container className='d-flex flex-column align-items-baseline justify-content-center py-4'>
             <h2>{date}</h2>
-            <Table className='' striped bordered hover responsive='sm'>
+            <Table className='food-widget-table' striped bordered hover responsive='sm'>
                 <thead>
                     <tr>
                         <th colSpan={2}>{date}</th>
