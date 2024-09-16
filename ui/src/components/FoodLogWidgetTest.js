@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col'; 
 import Table from 'react-bootstrap/Table';
 import Dropdown from 'react-bootstrap/Dropdown';
+
+//Components
+import FoodLogDisplay from './FoodLogDisplay.js';
+import HealthStateDisplay from './HealthStateDisplay.js';
+import UpdateLoggerDisplay from './UpdateLoggerDisplay.js';
 
 //Constants
 import { categories } from '../constants/constants.js';
 
 const FoodLogWidgetTest = () => {
+    const [currentTab, setCurrentTab] = useState('health');
     const [meals, setMeals] = useState(null);
     const [snacks, setSnacks] = useState(null);
     const [beverages, setBev] = useState(null);
@@ -24,54 +32,34 @@ const FoodLogWidgetTest = () => {
     let days = Array.from({ length }, (_, index) => `Days ${index + 1}`); 
 
     const handleClick = (e) => {
-        
+        setCurrentTab(e.target.name);
     }
+
+    console.log(`before return: ${currentTab}`)
 
     return ( 
         <Container className='d-flex flex-column align-items-baseline justify-content-center py-4'>
-            <h2>{date}</h2>
-            <Table className='food-widget-table' striped bordered hover responsive='sm'>
-                <thead>
-                    <tr>
-                        <th colSpan={2}>{date}</th>
-                    </tr>
-                </thead>
-                <tbody> 
-                    { /*categories.map((val, _) => { return (<tr>{val}{days.map((val, _) => <th></th>)}</tr>) })*/ } 
-                    { /* categories.map((val, index) => (
-                        <tr key={index}>
-                            <th className='d-md'>{val}</th>
-                            <td className='d-flex py-2' key={index}>
-                                    <Form.Control as='textarea' rows={1} />
-                                    <Button className='mx-3' variant="outline-primary" onClick={(e) => handleClick(e)}>+</Button>
-                            </td> 
-                        </tr>
-                    ))
-                    */}
-                    {
-                        <tr>
-                            <td>
-                                <Dropdown>{/*data-bs-theme="dark"*/}
-                                    <Dropdown.Toggle size='lg' variant='success'>
-                                        Category
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu  size='lg'>
-                                    {categories.map((val, index) => (
-                                        <Dropdown.Item href='#'>{val}</Dropdown.Item>
-                                    ))}
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </td>
-                            <td>
-                                <Button className='mx-3' variant="outline-primary" onClick={(e) => handleClick(e)}>+</Button>
-                            </td> 
-                        </tr>
-                    }
-                </tbody>
-                <tfoot>
-
-                </tfoot>
-            </Table>
+            <Card border='dark' className='mb-2' text='dark' style={{ width: '400px', height: '400px'}}>
+                <Card.Header>
+                    {date}
+                </Card.Header>
+                <Card.Header> 
+                    <Nav variant='pills' defaultActiveKey={'#' + currentTab}>
+                        <Nav.Item onClick={(e) => handleClick(e)}>
+                            <Nav.Link href='#health' name='health'>Health</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item onClick={(e) => handleClick(e)}>
+                            <Nav.Link href='#logger' name='logger'>Food Logger</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item onClick={(e) => handleClick(e)}>
+                            <Nav.Link href='#update' name='update'>Update info.</Nav.Link>
+                        </Nav.Item>
+                    </Nav>
+                </Card.Header>
+                { currentTab == 'health' && <HealthStateDisplay />}
+                { currentTab == 'logger' && <FoodLogDisplay />}
+                { currentTab == 'update' && <UpdateLoggerDisplay />}
+            </Card>
         </Container> 
     )
 } 
