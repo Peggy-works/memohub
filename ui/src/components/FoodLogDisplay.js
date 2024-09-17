@@ -16,7 +16,11 @@ const FoodLogDisplay = () => {
 
     return(
         <Card.Body className='d-flex flex-column'>
-            <h5>Select Food Type</h5>
+            <div className='d-flex align-items-center py-1'>
+                <h5>Select Food Type: </h5>
+                <Button className='my-1 mx-2' variant="outline-primary" style={{ width: 'fit-content'}}>Categories</Button> 
+                <Button className='my-1' variant="outline-primary" style={{ width: 'fit-content'}}>Search</Button> 
+            </div>
             <div className='d-flex'>
                 <Dropdown>{/*data-bs-theme="dark"*/}
                     <Dropdown.Toggle size='lg' variant='success' style={{ width: '300px' }}>
