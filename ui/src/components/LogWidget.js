@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+
+// Bootstrap Components
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -9,7 +11,7 @@ import Table from 'react-bootstrap/Table';
 //Constants
 import { categories } from '../constants/constants.js';
 
-const FoodLogWidget = () => {
+const LogWidget = () => {
     const [meals, setMeals] = useState(null);
     const [snacks, setSnacks] = useState(null);
     const [beverages, setBev] = useState(null);
@@ -53,4 +55,4 @@ const FoodLogWidget = () => {
     )
 }  
 
-export default FoodLogWidget;
+export default LogWidget;

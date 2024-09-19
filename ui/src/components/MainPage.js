@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/esm/Col';
 import Carousel from 'react-bootstrap/Carousel';
 import fetch from 'node-fetch';
 import WeatherWidget from './WeatherWidget';
-import FoodLogWidgetTest from './FoodLogWidgetTest';
+import LogWidgetTest from './LogWidgetTest';
 
 const MainPage = () => {
 
@@ -63,10 +63,21 @@ const MainPage = () => {
                                 </ul>
                             </Col>
                         </Row>
-                        <FoodLogWidgetTest />
+                        {
+                            /*
+                            <Row className='vw-100'>
+                            <LogWidgetTest />
+                            </Row>
+                            */
+                        }
                     </Container>
                 )
             }
+            <Container className='d-flex justify-content-center py-3'>
+                <Row className='vw-100'>
+                    <LogWidgetTest />
+                </Row>
+            </Container>
         </Container>
     )
 }

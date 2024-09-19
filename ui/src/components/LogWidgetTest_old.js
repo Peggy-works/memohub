@@ -10,7 +10,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 //Constants
 import { categories } from '../constants/constants.js';
 
-const FoodLogWidgetTest = () => {
+const LogWidgetTest = () => {
     const [meals, setMeals] = useState(null);
     const [snacks, setSnacks] = useState(null);
     const [beverages, setBev] = useState(null);
@@ -79,4 +79,4 @@ const FoodLogWidgetTest = () => {
 } 
 
 
-export default FoodLogWidgetTest;
+export default LogWidgetTest;
