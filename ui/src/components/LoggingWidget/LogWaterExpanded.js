@@ -54,6 +54,11 @@ const LogWaterExpanded = ({ open }) => {
                     <ProgressBar now={quant * 10} /> 
                     </Col>
                 </Row>
+                <Row className='align-items-center pt-3'>
+                    <Col className='d-flex justify-content-center'>
+                        <Button variant='primary'  style={{width: '100%'}}>submit</Button>
+                    </Col>
+                </Row>
             </div>
         </Collapse>
     )
