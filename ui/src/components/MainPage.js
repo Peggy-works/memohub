@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/esm/Col';
 import Carousel from 'react-bootstrap/Carousel';
 import fetch from 'node-fetch';
 import WeatherWidget from './WeatherWidget';
-import LogWidgetTest from './LogWidgetTest';
+import LogWidgetTest from './LoggingWidget/LogWidgetTest';
 
 const MainPage = () => {
 

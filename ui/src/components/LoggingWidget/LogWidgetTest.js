@@ -15,7 +15,7 @@ import HealthStateDisplay from './HealthStateDisplay.js';
 import UpdateLoggerDisplay from './UpdateLoggerDisplay.js';
 
 //Constants
-import { categories } from '../constants/constants.js';
+import { categories } from '../../constants/constants.js';
 
 const LogWidgetTest = () => {
     const [currentTab, setCurrentTab] = useState('health');

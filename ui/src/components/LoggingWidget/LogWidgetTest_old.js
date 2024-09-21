@@ -8,7 +8,7 @@ import Table from 'react-bootstrap/Table';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 //Constants
-import { categories } from '../constants/constants.js';
+import { categories } from '../../constants/constants.js';
 
 const LogWidgetTest = () => {
     const [meals, setMeals] = useState(null);

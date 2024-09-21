@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 
 //Constants
-import { categories } from '../constants/constants.js';
+import { categories } from '../../constants/constants.js';
 
 const LogWidget = () => {
     const [meals, setMeals] = useState(null);

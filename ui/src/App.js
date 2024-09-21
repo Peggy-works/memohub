@@ -5,7 +5,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import LoginPage from './components/LoginPage.js';
 import MainPage from './components/MainPage.js';
-import LogWidget from './components/LogWidget.js';
+import LogWidget from './components/LoggingWidget/LogWidget.js';
 
 function App() {
   return (

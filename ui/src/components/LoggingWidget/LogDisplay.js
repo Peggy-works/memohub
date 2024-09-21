@@ -17,7 +17,7 @@ import Col from 'react-bootstrap/Col';
 import LogWaterExpanded from './LogWaterExpanded.js';
 
 // Constants
-import { categories, svgs, radioIcons } from '../constants/constants.js';
+import { categories, svgs, radioIcons } from '../../constants/constants.js';
 
 const LogDisplay = () => {
     const [foodType, setType] = useState(null);
