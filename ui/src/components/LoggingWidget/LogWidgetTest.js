@@ -27,6 +27,7 @@ const LogWidgetTest = () => {
     const [excercise, setEx] = useState(null);
     const [sleep, setSleep] = useState(null); 
     const [date, setDate] = useState(new Date().toDateString());
+    const [isoDate, setIsoDate] = useState(new Date().toISOString().split('T')[0]);
 
     let length = 2;
     let days = Array.from({ length }, (_, index) => `Days ${index + 1}`); 
@@ -41,7 +42,7 @@ const LogWidgetTest = () => {
         <Container className='d-flex flex-column align-items-start justify-content-start' style={{ height: '400px'}}>
             <Card border='dark' className='mb-2' text='dark' style={{ width: '400px'}}>
                 <Card.Header>
-                    {date}
+                    {isoDate} 
                 </Card.Header>
                 <Card.Header> 
                     <Nav variant='pills' defaultActiveKey={'#' + currentTab}>

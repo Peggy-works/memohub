@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
 import Carousel from 'react-bootstrap/Carousel';
@@ -78,6 +79,24 @@ const MainPage = () => {
                     <LogWidgetTest />
                 </Row>
             </Container>
+            {/*
+                <Container className='d-flex justify-content-center py-3'>
+                <Row className=''>
+                    <Card bg='dark pb-2 pt-2' text='white' style={{ width: '25rem' }}> 
+                        <Card.Header>
+                            <h3>Raiders Open to WR Change</h3>
+                        </Card.Header>
+                        <Card.Body>
+                            <Card.Text>
+                                HC Anotionio Pierce has not ruled out a move this week amid 1-2 start. Says Davante Adams needs more "Taco Bell" 👀
+                            </Card.Text>
+                            <p style={{ color: '#ffffffa8' }}>Angel's Report</p>
+                        </Card.Body>
+                        <Card.Img src='https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2022/09/896/500/GettyImages-1427369276.jpg?ve=1&tl=1'></Card.Img>
+                    </Card>
+                </Row>
+            </Container>
+            */}
         </Container>
     )
 }

@@ -19,6 +19,7 @@ const LogWidgetTest = () => {
     const [excercise, setEx] = useState(null);
     const [sleep, setSleep] = useState(null); 
     const [date, setDate] = useState(new Date().toDateString());
+    const [isoDate, setIsoDate] = useState(new Date().toISOString().split('T'))
 
     let length = 2;
     let days = Array.from({ length }, (_, index) => `Days ${index + 1}`); 
@@ -29,7 +30,7 @@ const LogWidgetTest = () => {
 
     return ( 
         <Container className='d-flex flex-column align-items-baseline justify-content-center py-4'>
-            <h2>{date}</h2>
+            <h2>{date}</h2> 
             <div className='table-container'>
                 <Table striped bordered hover responsive='sm'>
                     <thead>

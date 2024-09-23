@@ -4,8 +4,24 @@ const pool = require('../db/connect');
 
 router.get('/getUser', async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT name, email, password FROM user where name = ?', ['Angel']); 
+        const [rows] = await pool.query('SELECT userid, name, email, password FROM user where name = ?', ['Angel']); 
         res.json(rows);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Server error');
+    }
+})
+
+router.post('/updateWater', async (req, res) => {
+    try {
+        console.log(req.body);
+        const [rows] = await pool.query('SELECT waterid, idnumber, totalWater, dateAdded FROM water');
+        if (!rows)
+            //If empty insert row
+            res.json(rows);
+        
+        //Row has already been created, UPDATE values rather than INSERT
+        res.json("empty rows")
     } catch (err) {
         console.log(err);
         res.status(500).send('Server error');
