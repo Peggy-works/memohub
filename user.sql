@@ -73,6 +73,9 @@ INSERT INTO `User` (`name`, `email`, `password`) VALUES
 INSERT INTO `User` (`name`, `email`, `password`) VALUES
 ('Test2', 'test2@gmail.com', 'test2'); 
 
+INSERT INTO `Water` (`idnumber`, `totalWater`, `dateAdded`) VALUES 
+(2, 4, `2024-09-24`)
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -12,19 +12,44 @@ router.get('/getUser', async (req, res) => {
     }
 })
 
+/*
+
+INSERT INTO `Water` (`idnumber`, `totalWater`, `dateAdded`) VALUES 
+(2, 4, `2024-09-24`)
+
+*/
+
 router.post('/updateWater', async (req, res) => {
     try {
-        console.log(req.body);
-        const [rows] = await pool.query('SELECT waterid, idnumber, totalWater, dateAdded FROM water');
-        if (!rows)
-            //If empty insert row
-            res.json(rows);
+        let missingFields = []
+        const { waterAmt, userId } = req.body;
+
+        // Handle post request missing fields/params
+        if(!waterAmt) missingFields.push("waterAmt");
+        if(!userId) missingFields.push("userId"); 
+        if(missingFields.length) 
+            return res.status(400).json({
+                error: "Bad Request",
+                message: `Missing parameters: ${missingFields.join(', ')}` 
+            }); 
         
+        const [rows] = await pool.query('SELECT waterid, idnumber, totalWater, dateAdded FROM water'); 
+
+        // If no row, insert row and return
+        if (!rows.length){ 
+            const [returnedRows] = await pool.query('INSERT INTO `Water` (`idnumber`, `totalWater`, `dateAdded`) VALUES (?, ?, ?)', [2, 4, '2024-09-24']);
+            return res.json(returnedRows);
+        }
+        
+        // If row exists just update row field
+        const [[{ totalWater }]] = await pool.query('SELECT totalWater FROM water WHERE `dateAdded` = ? LIMIT 1', ['2024-09-24']);   
+        const [result, fields] = await pool.query('UPDATE `water` SET `totalWater` = ? WHERE `dateAdded` = ? LIMIT 1', [totalWater + waterAmt, '2024-09-24']);
+        const [waterAmount2] = await pool.query('SELECT totalWater FROM water WHERE `dateAdded` = ? LIMIT 1', ['2024-09-24']);
         //Row has already been created, UPDATE values rather than INSERT
-        res.json("empty rows")
+        res.json({waterAmount2, ...req.body});
     } catch (err) {
         console.log(err);
-        res.status(500).send('Server error');
+        res.status(500).send("Server error");
     }
 })
 

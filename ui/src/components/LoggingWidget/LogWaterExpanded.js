@@ -15,13 +15,24 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Container from 'react-bootstrap/esm/Container';
+import { useWaterLogger } from '../../hooks/useAPI';
+
+// Custom hooks/ API
+//import { updateWaterLogger } from '../../utils/api';
+//import { useHydrationLogger } from '../../hooks/useHydrationLogger.js';
+
 
 const LogWaterExpanded = ({ open }) => {
+    const { loading, errorMessage, updateWaterLogger } = useWaterLogger();
     const [quant, setQuant] = useState(0);
 
     const handleClick = (e) => {
-        if (e.target.name == 'add' && quant+1 <= 10) setQuant(prev => prev + 1); 
-        if (e.target.name == 'subtract' && quant != 0) setQuant(prev => prev - 1);
+        if (e.target.name === 'add' && quant+1 <= 10) setQuant(prev => prev + 1); 
+        if (e.target.name === 'subtract' && quant !== 0) setQuant(prev => prev - 1);
+    } 
+
+    const handleSubmit = (e) => {
+        updateWaterLogger(quant);
     }
 
     return(
@@ -56,8 +67,11 @@ const LogWaterExpanded = ({ open }) => {
                 </Row>
                 <Row className='align-items-center pt-3'>
                     <Col className='d-flex justify-content-center'>
-                        <Button variant='primary'  style={{width: '100%'}}>submit</Button>
+                        <Button variant='primary' onClick={(e) => handleSubmit(e)} style={{width: '100%'}}>submit</Button>
                     </Col>
+                    <div className='pt-3'>
+                        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+                    </div>
                 </Row>
             </div>
         </Collapse>
