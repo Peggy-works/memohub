@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; 
+import { useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/esm/Row';
@@ -9,7 +10,7 @@ import WeatherWidget from './WeatherWidget';
 import LogWidgetTest from './LoggingWidget/LogWidgetTest';
 
 const MainPage = () => {
-
+    const navigate = useNavigate();
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -40,6 +41,10 @@ const MainPage = () => {
         });
     }, [])
 
+    const handleClick = (e) => {
+        navigate(e.target.name);
+    }
+
     return(
         <Container className='main-container d-flex flex-column align-items-baseline justify-content-center vh-100 py-5' fluid> 
             <Container className='d-flex justify-content-center py-3'>
@@ -55,7 +60,7 @@ const MainPage = () => {
                             <Col xs={3}>
                                 <ul className='pipe-decoration m-0'>
                                     <li><a href='https://github.com/Peggy-works/memohub'>The code for this website</a></li>
-                                    <li>Hello</li>
+                                    <li><a name='/notes' href='' onClick={(e) =>  handleClick(e)}>A La carte</a></li>
                                     <li>Hello</li>
                                     <li>Hello</li>
                                     <li>Hello</li>
