@@ -8,17 +8,23 @@ import MainPage from './components/MainPage.js';
 import NotesPage from './components/NotesPage.js';
 import LogWidget from './components/LoggingWidget/LogWidget.js';
 
+// Context
+import { ThemeProvider } from './context/ThemeContext.js';
+
+
 function App() {
   return (
-    <Router>
-      {/*<HeroNavbar/>*/}
-      <Routes>
-        <Route path='/' element={<LoginPage />} />
-        <Route path='/main' element={<MainPage />} />
-        <Route path='/food' element={<LogWidget />} />
-        <Route path='/notes' element={<NotesPage />} />
-      </Routes>
-    </Router>
+    <ThemeProvider>
+      <Router>
+        {/*<HeroNavbar/>*/}
+        <Routes>
+          <Route path='/' element={<LoginPage />} />
+          <Route path='/main' element={<MainPage />} />
+          <Route path='/food' element={<LogWidget />} />
+          <Route path='/notes' element={<NotesPage />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 

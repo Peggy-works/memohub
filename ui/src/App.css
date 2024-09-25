@@ -6,10 +6,16 @@
   background-color: #ffffff;
 }
 
-.weather-widget {
+.weather-widget-light {
   background-color: #f3f3f33d;
   border-radius: 10px;
   border: solid 2px rgb(224, 221, 221);
+}
+
+.weather-widget-dark {
+  background-color: #000000;
+  border-radius: 10px;
+  border: solid 2px rgb(0, 0, 0);
 }
 
 .table-container {
