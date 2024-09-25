@@ -10,14 +10,14 @@ import Table from 'react-bootstrap/Table';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 //Components
-import FoodLogDisplay from './FoodLogDisplay.js';
+import LogDisplay from './LogDisplay.js';
 import HealthStateDisplay from './HealthStateDisplay.js';
 import UpdateLoggerDisplay from './UpdateLoggerDisplay.js';
 
 //Constants
-import { categories } from '../constants/constants.js';
+import { categories } from '../../constants/constants.js';
 
-const FoodLogWidgetTest = () => {
+const LogWidgetTest = () => {
     const [currentTab, setCurrentTab] = useState('health');
     const [meals, setMeals] = useState(null);
     const [snacks, setSnacks] = useState(null);
@@ -27,6 +27,7 @@ const FoodLogWidgetTest = () => {
     const [excercise, setEx] = useState(null);
     const [sleep, setSleep] = useState(null); 
     const [date, setDate] = useState(new Date().toDateString());
+    const [isoDate, setIsoDate] = useState(new Date().toISOString().split('T')[0]);
 
     let length = 2;
     let days = Array.from({ length }, (_, index) => `Days ${index + 1}`); 
@@ -38,10 +39,10 @@ const FoodLogWidgetTest = () => {
     console.log(`before return: ${currentTab}`)
 
     return ( 
-        <Container className='d-flex flex-column align-items-baseline justify-content-center py-4'>
-            <Card border='dark' className='mb-2' text='dark' style={{ width: '400px', height: '400px'}}>
+        <Container className='d-flex flex-column align-items-start justify-content-start' style={{ height: '400px'}}>
+            <Card border='dark' className='mb-2' text='dark' style={{ width: '400px'}}>
                 <Card.Header>
-                    {date}
+                    {isoDate} 
                 </Card.Header>
                 <Card.Header> 
                     <Nav variant='pills' defaultActiveKey={'#' + currentTab}>
@@ -49,7 +50,7 @@ const FoodLogWidgetTest = () => {
                             <Nav.Link href='#health' name='health'>Health</Nav.Link>
                         </Nav.Item>
                         <Nav.Item onClick={(e) => handleClick(e)}>
-                            <Nav.Link href='#logger' name='logger'>Food Logger</Nav.Link>
+                            <Nav.Link href='#logger' name='logger'>Logger</Nav.Link>
                         </Nav.Item>
                         <Nav.Item onClick={(e) => handleClick(e)}>
                             <Nav.Link href='#update' name='update'>Update info.</Nav.Link>
@@ -57,7 +58,7 @@ const FoodLogWidgetTest = () => {
                     </Nav>
                 </Card.Header>
                 { currentTab == 'health' && <HealthStateDisplay />}
-                { currentTab == 'logger' && <FoodLogDisplay />}
+                { currentTab == 'logger' && <LogDisplay />}
                 { currentTab == 'update' && <UpdateLoggerDisplay />}
             </Card>
         </Container> 
@@ -65,4 +66,4 @@ const FoodLogWidgetTest = () => {
 } 
 
 
-export default FoodLogWidgetTest;
+export default LogWidgetTest;

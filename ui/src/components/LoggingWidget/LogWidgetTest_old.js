@@ -8,9 +8,9 @@ import Table from 'react-bootstrap/Table';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 //Constants
-import { categories } from '../constants/constants.js';
+import { categories } from '../../constants/constants.js';
 
-const FoodLogWidgetTest = () => {
+const LogWidgetTest = () => {
     const [meals, setMeals] = useState(null);
     const [snacks, setSnacks] = useState(null);
     const [beverages, setBev] = useState(null);
@@ -19,6 +19,7 @@ const FoodLogWidgetTest = () => {
     const [excercise, setEx] = useState(null);
     const [sleep, setSleep] = useState(null); 
     const [date, setDate] = useState(new Date().toDateString());
+    const [isoDate, setIsoDate] = useState(new Date().toISOString().split('T'))
 
     let length = 2;
     let days = Array.from({ length }, (_, index) => `Days ${index + 1}`); 
@@ -29,7 +30,7 @@ const FoodLogWidgetTest = () => {
 
     return ( 
         <Container className='d-flex flex-column align-items-baseline justify-content-center py-4'>
-            <h2>{date}</h2>
+            <h2>{date}</h2> 
             <div className='table-container'>
                 <Table striped bordered hover responsive='sm'>
                     <thead>
@@ -79,4 +80,4 @@ const FoodLogWidgetTest = () => {
 } 
 
 
-export default FoodLogWidgetTest;
+export default LogWidgetTest;
