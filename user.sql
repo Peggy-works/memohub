@@ -58,6 +58,16 @@ CREATE TABLE IF NOT EXISTS `Water` (
   CONSTRAINT fk_user_idnumber FOREIGN KEY (`idnumber`) REFERENCES `User`(`userid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+DROP TABLE IF EXISTS `Notes`;
+CREATE TABLE IF NOT EXISTS `Notes` (
+  `noteid` bigint NOT NULL AUTO_INCREMENT,
+  `idnumber` bigint NOT NULL,
+  `content` MEDIUMTEXT NOT NULL DEFAULT 0,
+  `dateAdded` DATE NOT NULL DEFAULT '',
+  PRIMARY KEY (`waterid`),
+  CONSTRAINT fk_user_idnumber FOREIGN KEY (`idnumber`) REFERENCES `User`(`userid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 -- (CURRENT_TIME) works
 
 --

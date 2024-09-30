@@ -66,7 +66,7 @@ const MainPage = () => {
                                 <ul className='pipe-decoration m-0'>
                                     <li><a style={{ color: (theme.theme === 'dark' ? 'white' : 'black')}} href='https://github.com/Peggy-works/memohub'>The code for this website</a></li>
                                     <li><a style={{ color: (theme.theme === 'dark' ? 'white' : 'black')}} name='/notes' href='' onClick={(e) =>  handleClick(e)}>A La carte</a></li>
-                                    <li style={{ color: (theme.theme === 'dark' ? 'white' : 'black')}}>Hello</li>
+                                    <li><a style={{ color: (theme.theme === 'dark' ? 'white' : 'black')}} name='/todo' href='' onClick={(e) => handleClick(e)}>Hello</a></li>
                                     <li style={{ color: (theme.theme === 'dark' ? 'white' : 'black')}}>Hello</li>
                                     <li style={{ color: (theme.theme === 'dark' ? 'white' : 'black')}}>Hello</li>
                                     <li style={{ color: (theme.theme === 'dark' ? 'white' : 'black')}}>Hello</li>

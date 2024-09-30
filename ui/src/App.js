@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import LoginPage from './components/LoginPage.js';
 import MainPage from './components/MainPage.js';
 import NotesPage from './components/NotesPage.js';
+import TodoPage from './components/TodoPage.js';
 import LogWidget from './components/LoggingWidget/LogWidget.js';
 
 // Context
@@ -23,6 +24,7 @@ function App() {
           <Route path='/main' element={<MainPage />} />
           <Route path='/food' element={<LogWidget />} />
           <Route path='/notes' element={<NotesPage />} />
+          <Route path='/todo' element={<TodoPage />} />
         </Routes>
       </Router>
     </ThemeProvider>
