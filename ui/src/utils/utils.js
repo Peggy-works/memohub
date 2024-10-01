@@ -1,4 +1,11 @@
 export function MarkdownParser(userInput = "# Testing Testing") { 
+    /**
+     * 1. Figure out the rules to this parser
+     * - Should check for non prefixed strings?
+     * - Should I split then parse
+     * - Parse then split?
+     * - Whats the best approach here...
+     */
     const symbols = /[\#|\~]/;  
     console.log(userInput)
 
