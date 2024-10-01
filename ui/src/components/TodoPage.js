@@ -94,7 +94,7 @@ const TodoPage = () => {
                                     <Card.Body className='p-1'>
                                         <Row xs={1}> 
                                             <Col xs={12} className='d-flex align-items-center'>
-                                                <Button size={'sm'} variant='primary' className='me-2' onClick={() => setActiveIndex((prev) => prev ? 0 : 1)}>+</Button>
+                                                <Button size={'sm'} variant='primary' className='me-2' onClick={() => setActiveIndex((prev) => prev ? 0 : 1)}>+ Expand</Button>
                                                 <h3 className='ms-2 mt-1'>Create new Task</h3>
                                             </Col>
                                         </Row>

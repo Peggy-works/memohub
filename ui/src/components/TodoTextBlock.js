@@ -11,10 +11,33 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
+// Utils
+import { MarkdownParser } from '../utils/utils';
+
 
 const TodoTextBlock = ({ open }) => {
+    const [html, setHtml] = useState([]);
     const [text, onChange] = useState("");
     const [amtOfRows, setRowAmount] = useState(2);
+    const [regexOut, setRegex] = useState(null);
+
+    const onClick = (e) => {
+        //console.log(e.target.textContent);
+        //console.log(`${text}`
+        // • 
+        /* 
+        • I think maybe I need to change1
+        • I think maybe I need to change2
+        • I think maybe I need to change3
+        • I think maybe I need to change4
+        */
+        //let c = text.split('\n');
+        ```for(let x = 0; x < c.length; x++) {
+            console.log(c[x]);
+            MarkdownParser(c[x]);
+        }```
+        //setHtml(MarkdownParser(c[0]));
+    }
 
     const onChangeHandler = (e) => {
         onChange(e.target.value) 
@@ -22,22 +45,35 @@ const TodoTextBlock = ({ open }) => {
     }
 
     const onKeyDownHandler = (e) => {
+        console.log(e);
         console.log(`Testing key combinations: ${e.key}`)
-        switch (e.key.toLowerCase()) {
-            case 'backspace':
+        /*
+        
+        case 'backspace':
                 console.log('backspace');
                 if(amtOfRows > 2) setRowAmount(prev => prev - 1);
                 return;
+        */
+        switch (e.key.toLowerCase()) { 
             case 'enter':
                 console.log('enter');
                 setRowAmount(prev => prev + 1);
                 return;
             default:
                 break;
-        }
+        } 
+        //setHtml(MarkdownParser(c[0]));
     }
 
-    useEffect(() => {console.log(`THe text within handler: ${text}`);}, [text]);
+    useEffect(() => {
+        let c = text.split('\n');
+        let elements_t = [];
+        for(let x = 0; x < c.length; x++){
+            elements_t.push(MarkdownParser(c[x]));
+            //setHtml(MarkdownParser(c[x]));
+        }
+        setHtml([...elements_t]);
+    }, [text]);
     {/*<div onKeyUp={(e) => onChangeHandler(e)} className='p-3' contentEditable='true'>
                 Helloooooooooo
             </div>*/}
@@ -47,44 +83,33 @@ const TodoTextBlock = ({ open }) => {
                 <div> 
                     <Row className='align-items-center pt-3'>
                         <Col xs={8}>
-                            <InputGroup> 
+                            <InputGroup style={{ width: '60%' }}> 
                                 <InputGroup.Text><span className='pe-1' style={{ color: 'blue'}}>@</span>Title</InputGroup.Text> 
                                 <FormControl
                                 type='text'
                                 placeholder='...'
-                                />
-                                <InputGroup.Text className='d-flex justify-content-center' style={{width: '50px'}}>
-                                    13
-                                </InputGroup.Text>
+                                />  
                             </InputGroup>
-                        </Col> 
-                        <Col>
-                            <InputGroup >
-                                <ButtonGroup>
-                                    <Button name='subtract' variant='primary'>-</Button>
-                                    <Button name='add' variant='primary'>+</Button>
-                                </ButtonGroup>
-                            </InputGroup>
-                        </Col>
+                        </Col>  
                     </Row>   
                     <Row className='align-items-center pt-3'>
                         <Col className='d-flex justify-content-center'> 
+                        <InputGroup>
+                            <InputGroup.Text style={{width: '75px'}}><span className='pe-1' style={{ color: 'blue' }}>@</span>Body</InputGroup.Text>
                             <Form.Control
-                                name='editableBlock' 
-                                as='textarea'
+                                name='editableBlock'  
+                                as='textarea' 
                                 className='remove-focus'
                                 placeholder={text}
                                 rows={amtOfRows}
+                                style={{resize: 'none'}}
                                 onChange={(e) => {onChangeHandler(e)}} 
                                 onKeyDown={(e) => {onKeyDownHandler(e)}}
-                            /> 
+                            />  
+                            <InputGroup.Text className='d-flex flex-column align-items-start' style={{maxWidth: '700px', width: '700px'}}>{html}</InputGroup.Text> 
+                        </InputGroup>
                         </Col> 
-                    </Row>
-                    <Row className='align-items-center pt-3'>
-                        <Col className='d-flex justify-content-center'>
-                            <Button variant='primary' style={{width: '100%'}}>submit</Button>
-                        </Col> 
-                    </Row>
+                    </Row> 
                 </div>
             </Collapse> 
         </>
