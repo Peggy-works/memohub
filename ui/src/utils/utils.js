@@ -6,6 +6,9 @@ export function MarkdownParser(userInput = "# Testing Testing") {
      * - Parse then split?
      * - Whats the best approach here...
      */
+    //we just returning the string 
+    return userInput;
+
     const symbols = /[\#|\~]/;  
     console.log(userInput)
 
