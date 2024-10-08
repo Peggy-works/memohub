@@ -45,6 +45,10 @@ const TodoPage = () => {
         }
     }
 
+    const testingOnInput = (e) => {
+        console.log(e);
+    }
+
     return ( 
         <>
             <Navbar bg="primary" data-bs-theme="" className='justify-content-between'>
