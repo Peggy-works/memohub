@@ -35,8 +35,7 @@ ul.pipe-decoration {
 ul.pipe-decoration li {
   background: url('./assets/pipe.PNG') no-repeat left center;
   padding-left: 20px;
-  background-size: 18px 18px;
-
+  background-size: 18px 18px; 
 }
 
 a {

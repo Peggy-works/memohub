@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `Folder` (
   `folderid` bigint NOT NULL AUTO_INCREMENT,
   `idnumber` bigint NOT NULL, 
   `dateAdded` DATE NOT NULL DEFAULT '',
-  PRIMARY KEY (`waterid`),
+  PRIMARY KEY (`folderid`),
   CONSTRAINT fk_user_idnumber FOREIGN KEY (`idnumber`) REFERENCES `User`(`userid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

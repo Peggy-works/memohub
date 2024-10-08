@@ -53,9 +53,17 @@ let categories2 = [
     ["Hours of Sleep", "sleephours"],  
 ]
 
+let exampleBlocks = [
+    "Div #1",
+    "Div #2",
+    "Div #3",
+    "Div #4"
+]
+
 export {
     categories,
     categories2,
     svgs,
-    radioIcons
+    radioIcons,
+    exampleBlocks
 }

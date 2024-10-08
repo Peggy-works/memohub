@@ -1,4 +1,23 @@
+body {
+    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"
+}
+
+div:focus-visible {
+    outline: none;
+}
+
 .remove-focus:focus {
     outline: none;
     box-shadow: none;
 }
+
+ul.pipe-decoration {
+    list-style: none;
+    padding-left: 20px;
+  }
+  
+  ul.pipe-decoration li {
+    background: url('./assets/pipe.PNG') no-repeat left center;
+    padding-left: 20px;
+    background-size: 18px 18px; 
+  }

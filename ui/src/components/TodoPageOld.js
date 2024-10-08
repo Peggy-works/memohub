@@ -104,13 +104,80 @@ const TodoPage = () => {
                                 <Card className='p-2' style={{maxWidth: '', height: 'fit-content'}}> 
                                     <Card.Body className='p-1'>
                                         <Row xs={1}> 
-                                            <Col xs={12} className='d-flex align-items-center'> 
-                                                <div contentEditable={true}><h3>Hello</h3></div>
+                                            <Col xs={12} className='d-flex align-items-center'>
+                                                <Button size={'sm'} variant='primary' className='me-2' onClick={() => setActiveIndex((prev) => prev ? 0 : 1)}>+ Expand</Button>
+                                                <h3 className='ms-2 mt-1'>Create new Task</h3>
                                             </Col>
                                         </Row>
                                     </Card.Body>  
                                     <TodoTextBlock open={activeIndex == 1} />
                                     {/* <Button className='mt-2' variant='primary'>+</Button> */}
+                                </Card>
+                            </Col>    
+                        </Row> 
+                        <Row className='p-3' xs={1}>
+                            <Col className='justify-content-center' style={{ backgroundColor: "", width: ''}} xs={12}>
+                                <Card className='p-2' style={{maxWidth: '', height: 'fit-content'}}> 
+                                    <Card.Body>
+                                        Hello
+                                    </Card.Body>  
+                                    <TextBlock />
+                                    <Button className='mt-2' variant='primary'>+</Button>
+                                </Card>
+                            </Col>    
+                        </Row> 
+                        <Row className='p-3' xs={1}>
+                            <Col className='justify-content-center' style={{ backgroundColor: "", width: ''}} xs={12}>
+                                <Card className='p-2' style={{maxWidth: '', height: 'fit-content'}}> 
+                                    <Card.Body>
+                                        Hello
+                                    </Card.Body>  
+                                    <TextBlock />
+                                    <Button className='mt-2' variant='primary'>+</Button>
+                                </Card>
+                            </Col>    
+                        </Row> 
+                        <Row className='p-3' xs={1}>
+                            <Col className='justify-content-center' style={{ backgroundColor: "", width: ''}} xs={12}>
+                                <Card className='p-2' style={{maxWidth: '', height: 'fit-content'}}> 
+                                    <Card.Body>
+                                        Hello
+                                    </Card.Body>  
+                                    <TextBlock />
+                                    <Button className='mt-2' variant='primary'>+</Button>
+                                </Card>
+                            </Col>    
+                        </Row> 
+                        <Row className='p-3' xs={1}>
+                            <Col className='justify-content-center' style={{ backgroundColor: "", width: ''}} xs={12}>
+                                <Card className='p-2' style={{maxWidth: '', height: 'fit-content'}}> 
+                                    <Card.Body>
+                                        Hello
+                                    </Card.Body>  
+                                    <TextBlock />
+                                    <Button className='mt-2' variant='primary'>+</Button>
+                                </Card>
+                            </Col>    
+                        </Row> 
+                        <Row className='p-3' xs={1}>
+                            <Col className='justify-content-center' style={{ backgroundColor: "", width: ''}} xs={12}>
+                                <Card className='p-2' style={{maxWidth: '', height: 'fit-content'}}> 
+                                    <Card.Body>
+                                        Hello
+                                    </Card.Body>  
+                                    <TextBlock />
+                                    <Button className='mt-2' variant='primary'>+</Button>
+                                </Card>
+                            </Col>    
+                        </Row> 
+                        <Row className='p-3' xs={1}>
+                            <Col className='justify-content-center' style={{ backgroundColor: "", width: ''}} xs={12}>
+                                <Card className='p-2' style={{maxWidth: '', height: 'fit-content'}}> 
+                                    <Card.Body>
+                                        Hello
+                                    </Card.Body>  
+                                    <TextBlock />
+                                    <Button className='mt-2' variant='primary'>+</Button>
                                 </Card>
                             </Col>    
                         </Row> 
