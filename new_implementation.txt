@@ -1,0 +1,4 @@
+- I think the approach is:
+- Dont save anything in a useState, 
+- Find a way to navigate the dom without useState
+- 

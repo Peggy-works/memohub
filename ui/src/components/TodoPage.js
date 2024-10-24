@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
+// Slate editor factory
+import { createEditor } from 'slate';
+import { Slate, Editable, withReact } from 'slate-react';
+
 // React components
 import TextBlock from './TextBlock.js';
 import TodoTextBlock from './TodoTextBlock.js';
@@ -9,8 +13,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-
+import Navbar from 'react-bootstrap/Navbar'; 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -21,6 +24,7 @@ import { useTheme } from '../context/ThemeContext';
 
 // Assets
 import sunny_light from '../assets/pipe.PNG'
+import SlateEditor from './SlateEditor.js';
 
 
 const TodoPage = () => {
@@ -30,6 +34,14 @@ const TodoPage = () => {
     const [text, setText] = useState('');
     const [doubleClick, setClickAmount] = useState(0);
     const theme = useTheme();
+    const [editor] = useState(() => withReact(createEditor()));
+
+    const initialValue = [
+        {
+            type: 'paragraph',
+            children: [{ text: 'A line of text in a paragraph.' }],
+        },
+    ]
 
     const onEditClick = (e) => { 
         setClickAmount(prev => prev + 1);
@@ -101,11 +113,11 @@ const TodoPage = () => {
                             </Row>
                         </Container>
                     </Col>  
-                    <Col className='d-flex flex-column p-0' 
+                    <Col className='d-flex flex-column p-3' 
                         style={{backgroundColor: 'white', height: '100vh', overflowY: 'auto', overflowX: 'hidden'}} xs={10} md={10} lg={10} xl={10}>  
-                        <Row className='p-3' xs={1}>
-                            <Col className='justify-content-center' style={{ backgroundColor: "", width: ''}} xs={12}>
-                                <Card className='p-2' style={{maxWidth: '', height: 'fit-content'}}> 
+                        <Row className='p-3 justify-content-center' xs={1}>
+                            <Col className='justify-content-center' style={{ backgroundColor: "", width: ''}} xs={10}>
+                                <Card className='p-3' style={{maxWidth: '', height: 'fit-content', border: 'none'}}> 
                                     <Card.Body className='p-1'>
                                         <Row xs={1}> 
                                             <Col xs={12} className='d-flex align-items-center'> 
@@ -113,44 +125,12 @@ const TodoPage = () => {
                                             </Col>
                                         </Row>
                                     </Card.Body>  
-                                    <TodoTextBlock open={activeIndex == 1} />
+                                    <SlateEditor />
+                                    { /* <TodoTextBlock open={activeIndex == 1} />*/}
                                     {/* <Button className='mt-2' variant='primary'>+</Button> */}
                                 </Card>
                             </Col>    
-                        </Row> 
-                        <Row className='p-3' xs={1}>
-                            <Col className='justify-content-center' style={{ backgroundColor: "", width: ''}} xs={12}>
-                                <Card className='p-2' style={{maxWidth: '', height: 'fit-content'}}> 
-                                    <Card.Body>
-                                        Hello
-                                    </Card.Body>  
-                                    <TextBlock />
-                                    <Button className='mt-2' variant='primary'>+</Button>
-                                </Card>
-                            </Col>    
-                        </Row> 
-                        <Row className='p-3' xs={1}>
-                            <Col className='justify-content-center' style={{ backgroundColor: "", width: ''}} xs={12}>
-                                <Card className='p-2' style={{maxWidth: '', height: 'fit-content'}}> 
-                                    <Card.Body>
-                                        Hello
-                                    </Card.Body>  
-                                    <TextBlock />
-                                    <Button className='mt-2' variant='primary'>+</Button>
-                                </Card>
-                            </Col>    
-                        </Row> 
-                        <Row className='p-3' xs={1}>
-                            <Col className='justify-content-center' style={{ backgroundColor: "", width: ''}} xs={12}>
-                                <Card className='p-2' style={{maxWidth: '', height: 'fit-content'}}> 
-                                    <Card.Body>
-                                        Hello
-                                    </Card.Body>  
-                                    <TextBlock />
-                                    <Button className='mt-2' variant='primary'>+</Button>
-                                </Card>
-                            </Col>    
-                        </Row> 
+                        </Row>  
                     </Col>
                 </Row>
             </Container>
